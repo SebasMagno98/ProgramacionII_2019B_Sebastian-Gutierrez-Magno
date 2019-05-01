@@ -1,0 +1,11 @@
+Sentencias preprocesadas.
+
+Las sentencias preprocesadas como #define e #include se utilizan normalmente para crear código fuente que sea fácil de cambiar y fácil de compilar en diversos ambientes de ejecucion.
+La sentencias en el archivo fuente le dicen al preprocesador que realice acciones especificas. Algunas de estas sentencias son:
+
+#Include: Es una instrucción que le indica al preprocesador que, al momento de ser ejecutado, el compilador debe incluir el archivo mencionado despues de la sentencia en el código.
+#Define: Crea un macro, el cual es la asociasión de un identificador con un Token String.
+#Undef: Instrucción la cual remueve una macro definición.
+#Error: Es una sentencia que emite un mensaje de error definido por el usuario el cual aparece a tiempo de compilación.
+#import: Se utiliza para incorporar información desde una librería.
+
