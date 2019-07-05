@@ -1,5 +1,6 @@
 #pragma once
 #include "Nodo.h"
+using namespace std;
 
 //---------CREACION DE LA CLASE LISTA----------------------
 class Lista : public Nodo
@@ -7,18 +8,16 @@ class Lista : public Nodo
 public:
 	//---------------------------
 	// MIEMBROS
-
-	Nodo * m_Temp = new Nodo();
-	Nodo * m_Temp2 = new Nodo();
-	Nodo * m_Temp3 = new Nodo();
+	Nodo * m_FirstN = nullptr;
+	Nodo * m_TempN = nullptr;
 	//----------------------------
 	//METODOS
 
-	void Push_L(Nodo *& N);
+	void Push_L(string a , unsigned char b);
 
 	void Print_L(Nodo *N);
 
-	void Pull_L(Nodo * &N);
+	Nodo Pull_L();
 
 
 	Lista();

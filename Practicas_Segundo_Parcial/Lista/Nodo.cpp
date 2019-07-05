@@ -1,5 +1,5 @@
 #include "Nodo.h"
-
+#include <iostream>
 //-----------------------METODOS DE NODOS
 
 void Nodo::Add(Nodo * &N)//------------METODO DE CREACION DE NODOS.
@@ -17,7 +17,7 @@ void Nodo::Add(Nodo * &N)//------------METODO DE CREACION DE NODOS.
 //-----------------------------------------
 
 
-Nodo * Nodo::Get_Next(Nodo * &N) //---------------METODO PARA OBTENER EL SIGUIENTE NODO.
+Nodo * Nodo::Get_Next() //---------------METODO PARA OBTENER EL SIGUIENTE NODO.
 {
 	if (m_Next == nullptr)
 	{
@@ -51,9 +51,18 @@ Nodo::Nodo(std::string Name, unsigned char Age) //--------------CONSTRUCTOR
 	m_Previous = nullptr;
 }
 
+void Nodo::Print_N()
+{
+	std::cout << "Nodo con valores:\n " << m_Name << " \n " << m_Age << ".\n";
+	if (m_Next != nullptr)
+	{
+		m_Next->Print_N();
+	}
+}
 
 Nodo::Nodo()
 {
+
 }
 
 //------------------------------------

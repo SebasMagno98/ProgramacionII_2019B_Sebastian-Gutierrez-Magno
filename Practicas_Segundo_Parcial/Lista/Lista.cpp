@@ -5,28 +5,22 @@ using namespace std;
 //------------------------------------METODOS--------------------------
 
 
-void Lista::Push_L(Nodo * &N) //---------------METOODO PARA INGRESAR LOS NODOS EN LA LISTA.
+void Lista::Push_L(string _Name, unsigned char _Age) //---------------METOODO PARA INGRESAR LOS NODOS EN LA LISTA.
 {
-	m_Temp = N;
-	m_Temp2;
-	m_Temp3;
+	Nodo * m_Temp = new Nodo(_Name, _Age);
 	
-	while ((m_Temp2 != nullptr) && (m_Temp2->m_Age < N->m_Age) && (m_Temp2->m_Name < N->m_Name))
+	if (&m_Next == nullptr)
 	{
-		m_Temp3 = m_Temp2;
-		m_Temp2 = m_Temp2->m_Next;
-	}
-	if (N == m_Temp2)
-	{
-		N = m_Temp;
+		m_Next = m_Temp;
+
 	}
 	else
 	{
-		m_Temp3->m_Next = m_Temp;
+		m_Next->Add(m_Temp);
+		cout << "El Nodo con los valores: " << m_Temp->m_Name << " y " << m_Temp->m_Age << " ha sido agregado a la lista.\n";
 	}
-	m_Temp->m_Next = m_Temp2;
 
-	cout << "El Nodo con los valores: " << m_Temp->m_Name << " y " << m_Temp->m_Age << " ha sido agregado a la lista.\n";
+	
 }
 
 //---------------------------------------------------------------------------
@@ -35,26 +29,27 @@ void Lista::Push_L(Nodo * &N) //---------------METOODO PARA INGRESAR LOS NODOS E
 
 void Lista::Print_L(Nodo *N) //------------------METODO PARA IMPRIMIR LOS NODOS DE LA LISTA.
 {
-	m_Temp = N;
-
-	while (m_Temp->m_Next != nullptr)
+	if (m_FirstN != nullptr)
 	{
-		cout << "Nodo con los valores: " << m_Temp->m_Name << " y " << m_Temp->m_Age << ".\n\n";
-		m_Temp = m_Temp->m_Next;
+		m_FirstN->Print_N();
+	}
+	else
+	{
+		cout << "No hay Nodos que imprimir.\n";
 	}
 }
 
 //---------------------------------------------------------------------------
 
 
-void Lista::Pull_L(Nodo *&N) //---------------------------METODO PARA SACAR NODOS DE LA LISTA.
+Nodo Lista::Pull_L() //---------------------------METODO PARA SACAR NODOS DE LA LISTA.
 {
-	m_Temp = N;
-
-	N = m_Temp->m_Next;
-
-	cout << "El Nodo con los valores: " << m_Temp->m_Name << " y " << m_Temp->m_Age << " ha sido eliminado de la Pila.\n";
-	delete m_Temp;
+	if (m_Next != nullptr)
+	{
+		Nodo * m_Temp = m_FirstN;
+		return *m_Temp;
+	}
+	
 }
 //------------------------------------------------------------------------
 
