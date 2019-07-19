@@ -1,6 +1,6 @@
 #include <iostream>
 
-int secuencia(int inicio, int final, int incremento)
+int secuencia(int inicio, int final, int incremento) //Funcion que imprime un numero generado por una secuencia de numeros.
 {
 	if (inicio < 0 and final > 0 and incremento < 0)
 	{
@@ -24,8 +24,14 @@ int secuencia(int inicio, int final, int incremento)
 	}
 	else
 	{
+		//Con esto se obtendra el numero de veces que se sumara el incremento, pero, no toma el primer digito.
 		int Iterador = (final - inicio) / incremento;
+
+		//El resultado de la secuencia se obtendra en base al iterador, el cual es el numero de veces que se sumara el incremento.
+
 		int secuenciaR = (incremento * ((Iterador *(Iterador + 1)) / 2)) + (inicio * (Iterador + 1));
+
+
 		std::cout << "\nEl resultado de la secuencia es: " << secuenciaR;
 		return 1;
 	}
