@@ -14,7 +14,7 @@ public:
 	void Arbol_PostOrden();
 	Arbol();
 	Arbol(Elementos * &);
-	Arbol(std::string, std::string, unsigned char);
+	Arbol(std::string, std::string, unsigned int);
 	~Arbol();
 
 

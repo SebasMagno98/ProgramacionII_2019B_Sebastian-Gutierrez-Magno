@@ -15,7 +15,7 @@ public:
 
 	//----------Metodos de la clase.------------
 	Elementos();
-	Elementos(std::string, std::string, unsigned char);
+	Elementos(std::string, std::string, unsigned int);
 	~Elementos();
 
 	std::ostream & operator <<(std::ostream & out);

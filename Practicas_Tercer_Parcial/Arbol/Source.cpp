@@ -28,7 +28,6 @@ int main()
 
 	while (Vueltas)
 	{
-		system("cls");
 		std::cout << "Ingresa 1. Para ver el arbol ordenado de forma Pre-Orden.\n"
 			<< "Ingresa 2. Para ver el arbol ordenado de forma In-Orden.\n"
 			<< "Ingresa 3. Para ver el arbol ordenado de forma Post Orden.\n"
@@ -40,16 +39,19 @@ int main()
 			system("cls");
 			std::cout << "Arbol en orden Pre-Orden: \n";
 			Nuevo_Arbol->Arbol_PreOrden();
+			std::cin.ignore();
 			break;
 		case '2':
 			system("cls");
 			std::cout << "Arbol en orden In-Orden: \n";
 			Nuevo_Arbol->Arbol_InOrden();
+			std::cin.ignore();
 			break;
 		case '3':
 			system("cls");
 			std::cout << "Arbol en Orden Post-Orden: \n";
 			Nuevo_Arbol->Arbol_PostOrden();
+			std::cin.ignore();
 			break;
 		case '4':
 			system("cls");
@@ -57,11 +59,9 @@ int main()
 			exit(-1);
 		default:
 			std::cout << "Opcion invalida.\n";
+			std::cin.ignore();
 			break;
 		}
 	}
-
-
-	std::cin.get();
 	return 0;
 }
