@@ -6,24 +6,41 @@ int main()
 	bool Vueltas = true;
 	unsigned char Opcion;
 
-	//Elementos de lado izquierdo del arbol.
-	Arbol *Nuevo_Arbol = new Arbol("Son", "Goku", 46);
-	Nuevo_Arbol->m_Raiz->Izquierda = new Elementos("Kuai", "Liang", 36);
-	Nuevo_Arbol->m_Raiz->Izquierda->Izquierda = new Elementos("Spartan", "John", 117);
-	Nuevo_Arbol->m_Raiz->Izquierda->Izquierda->Izquierda = new Elementos("Ornstein", "Smough", 20);
-	Nuevo_Arbol->m_Raiz->Izquierda->Izquierda->Derecha = new Elementos("Astora", "Oscar", 50);
-	Nuevo_Arbol->m_Raiz->Izquierda->Derecha = new Elementos("Jameson", "Locke", 37);
-	Nuevo_Arbol->m_Raiz->Izquierda->Derecha->Izquierda = new Elementos("Ketchum", "Ash", 10);
-	Nuevo_Arbol->m_Raiz->Izquierda->Derecha->Derecha = new Elementos("Santiago", "Dominic", 35);
+	
+	Arbol *Nuevo_Arbol = new Arbol();
+	Elementos *Persona = new Elementos("Son", "Goku", 46);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Kuai", "Liang", 36);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Spartan", "John", 117);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Ornstein", "Smough", 20);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Astora", "Oscar", 50);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Jameson", "Locke", 37);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Ketchum", "Ash", 10);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Santiago", "Dominic", 35);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Damon", "Baird", 29);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Carmine", "Benjamin", 22);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Carmine", "Anthony", 24);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Carmine", "Clayton", 28);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Kaliso", "Tai", 40);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Carmine", "Gary", 20);
+	Nuevo_Arbol->Ordenar(Persona);
+	Persona = new Elementos("Augustus", "Cole", 32);
+	Nuevo_Arbol->Ordenar(Persona);
+	
 
-	//Elementos de lado derecho del arbol.
-	Nuevo_Arbol->m_Raiz->Derecha = new Elementos("Damon", "Baird", 29);
-	Nuevo_Arbol->m_Raiz->Derecha->Derecha = new Elementos("Carmine", "Benjamin", 22);
-	Nuevo_Arbol->m_Raiz->Derecha->Izquierda = new Elementos("Carmine", "Anthony", 24);
-	Nuevo_Arbol->m_Raiz->Derecha->Derecha->Izquierda = new Elementos("Carmine", "Clayton", 28);
-	Nuevo_Arbol->m_Raiz->Derecha->Derecha->Derecha = new Elementos("Kaliso", "Tai", 40);
-	Nuevo_Arbol->m_Raiz->Derecha->Izquierda->Derecha = new Elementos("Carmine", "Gary", 20);
-	Nuevo_Arbol->m_Raiz->Derecha->Izquierda->Izquierda = new Elementos("Augustus", "Cole", 32);
+	
 
 
 	while (Vueltas)
@@ -56,6 +73,7 @@ int main()
 		case '4':
 			system("cls");
 			std::cout << "Hasta Luego.\n";
+			delete Nuevo_Arbol;
 			exit(-1);
 		default:
 			std::cout << "Opcion invalida.\n";

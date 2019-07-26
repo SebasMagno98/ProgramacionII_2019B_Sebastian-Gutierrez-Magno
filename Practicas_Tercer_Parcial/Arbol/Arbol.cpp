@@ -2,6 +2,18 @@
 
 
 
+void Arbol::Ordenar(Elementos *& _Persona)
+{
+	if (m_Raiz != nullptr)
+	{
+		m_Raiz->Agregar(_Persona);
+	}
+	else
+	{
+		m_Raiz = _Persona;
+	}
+}
+
 void Arbol::Arbol_PreOrden()
 {
 	if (m_Raiz != nullptr)

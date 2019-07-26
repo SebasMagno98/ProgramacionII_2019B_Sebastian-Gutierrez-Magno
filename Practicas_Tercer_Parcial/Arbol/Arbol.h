@@ -9,6 +9,7 @@ public:
 
 
 	//-------Metodos de la clase---------
+	void Ordenar(Elementos * &);
 	void Arbol_PreOrden();
 	void Arbol_InOrden();
 	void Arbol_PostOrden();

@@ -74,4 +74,84 @@ std::ostream & Elementos::operator<<(std::ostream & out)
 	return out;
 }
 
+void Elementos::Agregar(Elementos * _Datos)
+{
+	if (_Datos->m_Apellido < m_Apellido)
+	{
+		if (Izquierda != nullptr )
+		{
+			Izquierda->Agregar(_Datos);
+		}
+		else
+		{
+			Izquierda = _Datos;
+		}
+	}
+	else if (_Datos->m_Apellido > m_Apellido)
+	{
+		if (Derecha != nullptr)
+		{
+			Derecha->Agregar(_Datos);
+		}
+		else 
+		{
+			Derecha = _Datos;
+		}
+	
+	}
+	if (_Datos->m_Nombre < m_Nombre)
+	{
+		if (Izquierda != nullptr)
+		{
+			Izquierda->Agregar(_Datos);
+		}
+		else
+		{
+			Izquierda = _Datos;
+		}
+	}
+	else if (_Datos->m_Nombre > m_Nombre)
+	{
+		if (Derecha != nullptr)
+		{
+			Derecha->Agregar(_Datos);
+		}
+		else
+		{
+			Derecha = _Datos;
+		}
+	}
+	else
+	{
+		if (_Datos->m_Edad < m_Edad)
+		{
+			if (Izquierda != nullptr)
+			{
+				Izquierda->Agregar(_Datos);
+			}
+			else
+			{
+				Izquierda = _Datos;
+			}
+		}
+		else if (_Datos->m_Edad > m_Edad)
+		{
+			if (Derecha != nullptr)
+			{
+				Derecha->Agregar(_Datos);
+			}
+			else
+			{
+				Derecha = _Datos;
+			}
+		}
+		else
+		{
+			std::cout << "Los datos de esta persona ya existen.\n";
+		}
+	}
+}
+
+
+
 
