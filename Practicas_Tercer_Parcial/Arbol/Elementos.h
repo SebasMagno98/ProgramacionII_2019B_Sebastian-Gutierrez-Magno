@@ -19,7 +19,11 @@ public:
 	~Elementos();
 
 	std::ostream & operator <<(std::ostream & out);
-	void Agregar(Elementos *);
+	bool operator > (Elementos &);
+	bool operator == (Elementos &);
+	void Agregar(Elementos * &);
+	void Eliminar(Elementos *);
+
 	void In_Orden();
 	void Pre_Orden();
 	void Post_Orden();

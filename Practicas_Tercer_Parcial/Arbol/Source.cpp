@@ -6,7 +6,8 @@ int main()
 	bool Vueltas = true;
 	unsigned char Opcion;
 
-	
+	//Elementos que conformaran el arbol, así como tambien sus ramas y hojas.
+
 	Arbol *Nuevo_Arbol = new Arbol();
 	Elementos *Persona = new Elementos("Son", "Goku", 46);
 	Nuevo_Arbol->Ordenar(Persona);
@@ -20,7 +21,7 @@ int main()
 	Nuevo_Arbol->Ordenar(Persona);
 	Persona = new Elementos("Jameson", "Locke", 37);
 	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Ketchum", "Ash", 10);
+	Persona = new Elementos("Catsup", "Ash", 10);
 	Nuevo_Arbol->Ordenar(Persona);
 	Persona = new Elementos("Santiago", "Dominic", 35);
 	Nuevo_Arbol->Ordenar(Persona);
@@ -40,7 +41,7 @@ int main()
 	Nuevo_Arbol->Ordenar(Persona);
 	
 
-	
+	// Menu para elegir la forma en como se quiere ordenar el arbol.
 
 
 	while (Vueltas)
