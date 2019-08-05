@@ -1,28 +1,24 @@
 #pragma once
-#include <iostream>
-#include <string>
+#include "Persona.h"
+
+template <class A>
 class Elementos
 {
 public:
 	//-------Miembros de la clase.------------------
-	std::string m_Nombre;
-	std::string m_Apellido;
-	unsigned char m_Edad;
 
 	
-	Elementos * Derecha;
-	Elementos * Izquierda;
+	Elementos<A> * Derecha;
+	Elementos<A> * Izquierda;
 
 	//----------Metodos de la clase.------------
 	Elementos();
-	Elementos(std::string, std::string, unsigned int);
+	
 	~Elementos();
 
 	std::ostream & operator <<(std::ostream & out);
-	bool operator > (Elementos &);
-	bool operator == (Elementos &);
-	void Agregar(Elementos * &);
-	void Eliminar(Elementos *);
+	void Agregar(Elementos<A> * &);
+	void Eliminar(Elementos<A> *);
 
 	void In_Orden();
 	void Pre_Orden();

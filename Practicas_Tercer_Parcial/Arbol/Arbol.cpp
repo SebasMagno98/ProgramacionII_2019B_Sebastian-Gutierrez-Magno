@@ -1,7 +1,7 @@
 #include "Arbol.h"
 
-
-void Arbol::Ordenar(Elementos *& _Persona)  //Metodo para agregar el primer elemento al arbol, el cual será la raiz.
+template<class A>
+void Arbol<A>::Ordenar(Elementos<A> *& _Persona)  //Metodo para agregar el primer elemento al arbol, el cual será la raiz.
 {
 	if (m_Raiz != nullptr)					//En caso de ya existir raiz, los elementos siguientes seran asigandos a las ramas u hojas.
 	{
@@ -13,7 +13,9 @@ void Arbol::Ordenar(Elementos *& _Persona)  //Metodo para agregar el primer elem
 	}
 }
 
-void Arbol::Eliminar(std::string Apellido) //Metodo para eliminar el elemento que se haya recibido.
+//--------------------------------------------------------------------------------------------------------------------------------------
+template<class A>
+void Arbol<A>::Eliminar(std::string Apellido) //Metodo para eliminar el elemento que se haya recibido.
 {
 	Elementos * Temp;
 	Elementos *Temp_2 = new Elementos();
@@ -92,8 +94,9 @@ void Arbol::Eliminar(std::string Apellido) //Metodo para eliminar el elemento qu
 		
 	}
 }
-
-void Arbol::Arbol_PreOrden() //Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
+//--------------------------------------------------------------------------------------------------------------------------------------
+template<class A>
+void Arbol<A>::Arbol_PreOrden() //Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
 {
 	if (m_Raiz != nullptr)
 	{
@@ -101,7 +104,8 @@ void Arbol::Arbol_PreOrden() //Metodo que se realizara siempre y cuando haya mas
 	}
 }
 
-void Arbol::Arbol_InOrden()	//Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
+template<class A>
+void Arbol<A>::Arbol_InOrden()	//Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
 {
 	if (m_Raiz != nullptr)
 	{
@@ -109,7 +113,8 @@ void Arbol::Arbol_InOrden()	//Metodo que se realizara siempre y cuando haya mas 
 	}
 }
 
-void Arbol::Arbol_PostOrden()	//Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
+template<class A>
+void Arbol<A>::Arbol_PostOrden()	//Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
 {
 	if (m_Raiz != nullptr)
 	{
@@ -117,22 +122,28 @@ void Arbol::Arbol_PostOrden()	//Metodo que se realizara siempre y cuando haya ma
 	}
 }
 
-Arbol::Arbol() //Constructor de clase arbol, el cual solo crea una raiz.
+template<class A>
+Arbol<A>::Arbol() //Constructor de clase arbol, el cual solo crea una raiz.
 {
 	m_Raiz = nullptr;
 }
 
-Arbol::Arbol(Elementos *& _Raiz) // Constructor de clase arbol, el cual iguala los datos del elemento recibido a la raiz del arbol.
+template<class A>
+Arbol<A>::Arbol(Elementos<A> *& _Raiz) // Constructor de clase arbol, el cual iguala los datos del elemento recibido a la raiz del arbol.
 {
 	m_Raiz = _Raiz;
 }
 
-Arbol::Arbol(std::string _Apellido, std::string _Nombre, unsigned int _Edad) // Constructor de clase arbol, el cual recibe los datos que se asignaran al lemento de la raiz.
+
+template<class A>
+Arbol<A>::Arbol(std::string _Apellido, std::string _Nombre, unsigned int _Edad) // Constructor de clase arbol, el cual recibe los datos que se asignaran al lemento de la raiz.
 {
 	m_Raiz = new Elementos(_Apellido, _Nombre,_Edad);
 }
 
-
-Arbol::~Arbol()
+template<class A>
+Arbol<A>::~Arbol()
 {
 }
+
+template class Arbol<Persona>;

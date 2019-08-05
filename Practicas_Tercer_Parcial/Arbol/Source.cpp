@@ -1,4 +1,5 @@
 #include "Arbol.h"
+
 #include <Windows.h>
 
 int main()
@@ -8,37 +9,37 @@ int main()
 
 	//Elementos que conformaran el arbol, así como tambien sus ramas y hojas.
 
-	Arbol *Nuevo_Arbol = new Arbol();
-	Elementos *Persona = new Elementos("Son", "Goku", 46);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Kuai", "Liang", 36);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Spartan", "John", 117);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Ornstein", "Smough", 20);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Astora", "Oscar", 50);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Jameson", "Locke", 37);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Catsup", "Ash", 10);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Santiago", "Dominic", 35);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Damon", "Baird", 29);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Carmine", "Benjamin", 22);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Carmine", "Anthony", 24);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Carmine", "Clayton", 28);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Kaliso", "Tai", 40);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Carmine", "Gary", 20);
-	Nuevo_Arbol->Ordenar(Persona);
-	Persona = new Elementos("Augustus", "Cole", 32);
-	Nuevo_Arbol->Ordenar(Persona);
+	Arbol<Persona> *Nuevo_Arbol = new Arbol<Persona>();
+	Elementos<Persona> *Personas = new Elementos<Persona>(Persona("Son", "Goku", 46));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Kuai", "Liang", 36));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Spartan", "John", 117));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Ornstein", "Smough", 20));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Astora", "Oscar", 50));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Jameson", "Locke", 37));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Catsup", "Ash", 10));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Santiago", "Dominic", 35));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Damon", "Baird", 29));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Carmine", "Benjamin", 22));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Carmine", "Anthony", 24));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Carmine", "Clayton", 28));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Kaliso", "Tai", 40));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Carmine", "Gary", 20));
+	Nuevo_Arbol->Ordenar(Personas);
+	Personas = new Elementos<Persona>(Persona("Augustus", "Cole", 32));
+	Nuevo_Arbol->Ordenar(Personas);
 	
 
 	// Menu para elegir la forma en como se quiere ordenar el arbol.
