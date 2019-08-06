@@ -1,24 +1,27 @@
 #pragma once
 #include "Elementos.h"
 template <class A>
-class Arbol: public Elementos
+class Arbol
 {
 public:
 
 	//-------Miembros de la clase---------
-	Elementos <A> * m_Raiz;
+	Elementos<A> * m_Raiz;
 
 
-	//-------Metodos de la clase---------
+	//-------Metodos y Constructores de la clase---------
 	
 	void Ordenar(Elementos <A> * &);
-	void Eliminar(std::string);
+	/*void Eliminar(std::string);*/
+	void RotacionIzq(Elementos<A> *&);
+	void RotacionDer(Elementos<A> *&);
 	void Arbol_PreOrden();
 	void Arbol_InOrden();
 	void Arbol_PostOrden();
+
+
 	Arbol();
-	Arbol(Elementos<A> * &);
-	Arbol(std::string, std::string, unsigned int);
+	Arbol(Elementos<A> * );
 	~Arbol();
 
 

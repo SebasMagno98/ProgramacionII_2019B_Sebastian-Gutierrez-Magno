@@ -10,7 +10,26 @@ Elementos<A>::Elementos()
 	Derecha = nullptr;
 }
 
+template<class A>
+Elementos<A>::Elementos(A _Datos) : Datos(_Datos)
+{
+	Izquierda = nullptr;
+	Derecha = nullptr;
+}
 
+//Destructor De la clase Elementos
+template<class A>
+Elementos<A>::~Elementos()
+{
+	if (Izquierda != nullptr)
+	{
+		delete Izquierda;
+	}
+	if (Derecha != nullptr)
+	{
+		delete Derecha;
+	}
+}
 
 
 // Metodo para ordenar, el cual, conforme va moviendose por el arbol, irá imprimiendo los elementos.
@@ -19,11 +38,9 @@ void Elementos<A>::In_Orden()
 {
 	if (Izquierda != nullptr)
 	{
-		std::cout << "\nApellido: " << m_Apellido << '.'
-			<< "\nNombre: " << m_Nombre << '.'
-			<< "\nEdad: " << m_Edad << "."
-			<< '\n';
+		Izquierda->In_Orden();
 	}
+	std::cout << Datos << "\n";
 	if (Derecha != nullptr)
 	{
 		Derecha->In_Orden();
@@ -31,14 +48,12 @@ void Elementos<A>::In_Orden()
 
 }
 
+
 // Metodo para ordenar, el cual, imprimirá primero el elemento y después va a moverse.
 template<class A>
 void Elementos<A>::Pre_Orden()
 {
-	std::cout << "\nApellido: " << m_Apellido << '.'
-		<< "\nNombre: " << m_Nombre << '.'
-		<< "\nEdad: " << m_Edad << "."
-		<< '\n';
+	std::cout << Datos << "\n";
 	if (Izquierda != nullptr)
 	{
 		Izquierda->Pre_Orden();
@@ -62,32 +77,23 @@ void Elementos<A>::Post_Orden()
 	{
 		Derecha->Post_Orden();
 	}
-	std::cout << "\nApellido: " << m_Apellido << '.'
-		<< "\nNombre: " << m_Nombre << '.'
-		<< "\nEdad: " << m_Edad << "."
-		<< '\n';
+	std::cout << Datos << "\n";
 }
 
+//---------------------------------------------------------------------------------------
 template<class A>
-Elementos<A>::~Elementos()
+bool Elementos<A>::operator>(Elementos<A>& E)
 {
-}
-
-// Sobrecarga de Operador <<  que permite imprimir los elementos en pantalla.
-template<class A>
-std::ostream & Elementos<A>::operator<<(std::ostream & out)
-{
-	out << "Apellido: " << m_Apellido << ".\nNombre: " << m_Nombre << ".\nEdad: " << m_Edad << ".\n";
-	return out;
+	return Datos > E.Datos;
 }
 
 
 //Metodo para agregar elementos al arbol.
 template<class A>
-void Elementos<A>::Agregar(Elementos * &_Datos)
+void Elementos<A>::Agregar(Elementos<A> * &_Datos)
 {
-	if (_Datos->m_Apellido < m_Apellido)	//Verificará si el apellido del dato recibido es menor al del elemento, en caso de serlo se revisará si el espacio donde posiblemente irá esta ocupado.
-	{										 //De no estar ocupado, se asignara el elemento a dicha posisicon, caso contrario se volvera a realizar la operacion de forma recursiva.
+	if (*this > *_Datos)	//Verificará si el dato recibido es menor al elemento, en caso de serlo se revisará si el espacio donde posiblemente irá esta ocupado.
+	{										 //De no estar ocupado, se asignara el elemento a dicha posicion, caso contrario se volvera a realizar la operacion de forma recursiva.
 		if (Izquierda != nullptr )
 		{
 			Izquierda->Agregar(_Datos);
@@ -97,69 +103,19 @@ void Elementos<A>::Agregar(Elementos * &_Datos)
 			Izquierda = _Datos;
 		}
 	}
-	else if (_Datos->m_Apellido > m_Apellido) //Misma operacion que en el paso anterior, solo que aqui se revisa si es mayor el apellido del dato recibido al que ya se encuentra, en caso de serlo se realiza la operacion.
+	else  //Misma operacion que en el paso anterior, solo que aqui se revisa si el puntero de la derecha esta ocupado o no, de no estarlo, se le asignará el dato.
 	{
 		if (Derecha != nullptr)
 		{
 			Derecha->Agregar(_Datos);
 		}
-		else 
+		else
 		{
 			Derecha = _Datos;
 		}
+
+	}
 	
-	}
-	if (_Datos->m_Nombre < m_Nombre) //Misma operacion que en el primer paso, solo que aqui, se compararán los nombres.
-	{
-		if (Izquierda != nullptr)
-		{
-			Izquierda->Agregar(_Datos);
-		}
-		else
-		{
-			Izquierda = _Datos;
-		}
-	}
-	else if (_Datos->m_Nombre > m_Nombre)
-	{
-		if (Derecha != nullptr)
-		{
-			Derecha->Agregar(_Datos);
-		}
-		else
-		{
-			Derecha = _Datos;
-		}
-	}
-	else
-	{
-		if (_Datos->m_Edad < m_Edad) // Misma operacion que la realizada anteriormente, solo que aqui, se compararán las edades.
-		{
-			if (Izquierda != nullptr)
-			{
-				Izquierda->Agregar(_Datos);
-			}
-			else
-			{
-				Izquierda = _Datos;
-			}
-		}
-		else if (_Datos->m_Edad > m_Edad)
-		{
-			if (Derecha != nullptr)
-			{
-				Derecha->Agregar(_Datos);
-			}
-			else
-			{
-				Derecha = _Datos;
-			}
-		}
-		else                                                           //En caso de que exista un elemento con los mismos datos que el que se recibe como parametro, mandara un mensaje indicando que ya existe.
-		{                                                              // No se pueden repetir, ya que cada elemento debe ser único.
-			std::cout << "Los datos de esta persona ya existen.\n";
-		}
-	}
 }
 
 template<class A>

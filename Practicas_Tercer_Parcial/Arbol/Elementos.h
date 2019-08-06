@@ -8,15 +8,16 @@ public:
 	//-------Miembros de la clase.------------------
 
 	
+	A Datos;
 	Elementos<A> * Derecha;
 	Elementos<A> * Izquierda;
 
-	//----------Metodos de la clase.------------
+	//----------Metodos, constructores y destructores de la clase.------------
 	Elementos();
-	
+	Elementos(A);
 	~Elementos();
 
-	std::ostream & operator <<(std::ostream & out);
+	bool operator > (Elementos<A> &);
 	void Agregar(Elementos<A> * &);
 	void Eliminar(Elementos<A> *);
 

@@ -10,7 +10,7 @@ int main()
 	//Elementos que conformaran el arbol, así como tambien sus ramas y hojas.
 
 	Arbol<Persona> *Nuevo_Arbol = new Arbol<Persona>();
-	Elementos<Persona> *Personas = new Elementos<Persona>(Persona("Son", "Goku", 46));
+	Elementos<Persona> *Personas = new Elementos<Persona>(Persona("Son", "Goku", 40));
 	Nuevo_Arbol->Ordenar(Personas);
 	Personas = new Elementos<Persona>(Persona("Kuai", "Liang", 36));
 	Nuevo_Arbol->Ordenar(Personas);

@@ -14,7 +14,7 @@ void Arbol<A>::Ordenar(Elementos<A> *& _Persona)  //Metodo para agregar el prime
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------
-template<class A>
+/*template<class A>
 void Arbol<A>::Eliminar(std::string Apellido) //Metodo para eliminar el elemento que se haya recibido.
 {
 	Elementos * Temp;
@@ -94,6 +94,109 @@ void Arbol<A>::Eliminar(std::string Apellido) //Metodo para eliminar el elemento
 		
 	}
 }
+
+*/
+//-------------------------------------------------------------------------------------------------------------------------------------------------
+template<class A>
+void Arbol<A>::RotacionIzq(Elementos<A>*& _Datos) //Rotación de los elementos del árbol hacia la derecha.
+{
+	Elementos<A> *Temp;
+	Elementos<A> * Temp_2 = m_Raiz;
+
+	if (_Datos->Derecha != nullptr)
+	{
+		Temp = _Datos->Derecha;
+		if (Temp->Izquierda != nullptr)
+		{
+			_Datos->Derecha = Temp->Izquierda;
+		}
+		Temp->Izquierda = _Datos;
+
+		if (_Datos != m_Raiz)
+		{
+			
+			while (Temp_2 != nullptr)
+			{
+				if (Temp_2 > _Datos)
+				{
+					if (Temp_2->Izquierda == _Datos)
+					{
+						Temp_2->Izquierda = Temp;
+					}
+					else
+					{
+						Temp_2 = Temp_2->Izquierda;
+					}
+				}
+				else
+				{
+					if (Temp_2->Derecha == _Datos)
+					{
+						Temp_2->Derecha = Temp;
+					}
+					else
+					{
+						Temp_2 = Temp_2->Derecha;
+					}
+						 
+				}
+			}
+		}
+	}
+	
+
+}
+
+//---------------------------------------------------------------------------------------------------------------------------------------------
+template<class A>
+void Arbol<A>::RotacionDer(Elementos<A>*& _Datos) //Rotacion de los elementos del árbol hacia la izquierda.
+{
+	Elementos<A> *Temp;
+	Elementos<A> * Temp_2 = m_Raiz;
+
+	if (_Datos->Izquierda != nullptr)
+	{
+		Temp = _Datos->Izquierda;
+		if (Temp->Derecha != nullptr)
+		{
+			_Datos->Izquierda = Temp->Derecha;
+		}
+		Temp->Derecha = _Datos;
+
+		if (_Datos != m_Raiz)
+		{
+			
+			while (Temp_2 != nullptr)
+			{
+				if (Temp_2 > _Datos)
+				{
+					
+					if (Temp_2->Izquierda == _Datos)
+					{
+						Temp_2->Izquierda = Temp;
+					}
+					else
+					{
+						Temp_2 = Temp_2->Izquierda;
+					}
+				}
+				else
+				{
+					if (Temp_2->Derecha == _Datos)
+					{
+						Temp_2->Derecha = Temp;
+					}
+					else
+					{
+
+						Temp_2 = Temp_2->Derecha;
+					}
+				}
+			}
+		}
+	}
+
+}
 //--------------------------------------------------------------------------------------------------------------------------------------
 template<class A>
 void Arbol<A>::Arbol_PreOrden() //Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
@@ -104,6 +207,7 @@ void Arbol<A>::Arbol_PreOrden() //Metodo que se realizara siempre y cuando haya 
 	}
 }
 
+//----------------------------------------------------------------------------------------------------------------------------------------
 template<class A>
 void Arbol<A>::Arbol_InOrden()	//Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
 {
@@ -113,6 +217,7 @@ void Arbol<A>::Arbol_InOrden()	//Metodo que se realizara siempre y cuando haya m
 	}
 }
 
+//-------------------------------------------------------------------------------------------------------------------------------------------
 template<class A>
 void Arbol<A>::Arbol_PostOrden()	//Metodo que se realizara siempre y cuando haya mas elementos en el arbol ademas de la raiz.
 {
@@ -122,28 +227,29 @@ void Arbol<A>::Arbol_PostOrden()	//Metodo que se realizara siempre y cuando haya
 	}
 }
 
+//--------------------------------------------------------------------------------------------------------------------------------------------
 template<class A>
 Arbol<A>::Arbol() //Constructor de clase arbol, el cual solo crea una raiz.
 {
 	m_Raiz = nullptr;
 }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------
 template<class A>
-Arbol<A>::Arbol(Elementos<A> *& _Raiz) // Constructor de clase arbol, el cual iguala los datos del elemento recibido a la raiz del arbol.
+Arbol<A>::Arbol(Elementos<A> * _Raiz) // Constructor de clase arbol, el cual iguala los datos del elemento recibido a la raiz del arbol.
 {
 	m_Raiz = _Raiz;
 }
 
 
-template<class A>
-Arbol<A>::Arbol(std::string _Apellido, std::string _Nombre, unsigned int _Edad) // Constructor de clase arbol, el cual recibe los datos que se asignaran al lemento de la raiz.
-{
-	m_Raiz = new Elementos(_Apellido, _Nombre,_Edad);
-}
-
+//---------------------------------------------------------------------------------------------------------------------------------------------
 template<class A>
 Arbol<A>::~Arbol()
 {
+	if (m_Raiz != nullptr)
+	{
+		delete m_Raiz;
+	}
 }
 
 template class Arbol<Persona>;

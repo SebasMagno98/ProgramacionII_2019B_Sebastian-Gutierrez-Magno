@@ -10,12 +10,14 @@ public:
 	std::string m_Apellido;
 	unsigned char m_Edad;
 
+	//-------------Constructores y Sobrecargas ----------------------------
 	Persona(std::string, std::string, int);
 	Persona();
 	~Persona();
 
 	bool operator > (Persona &);
+	bool operator < (Persona &);
 	bool operator == (Persona &);
-	friend std::ostream & operator >> (std::ostream &, Persona &);
+	friend std::ostream & operator << (std::ostream &, Persona &);
 };
 

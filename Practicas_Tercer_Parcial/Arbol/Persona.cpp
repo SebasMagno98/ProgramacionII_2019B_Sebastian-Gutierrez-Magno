@@ -29,9 +29,26 @@ bool Persona::operator>(Persona & _Datos)
 	{
 		return m_Nombre > _Datos.m_Nombre;
 	}
-	else if (_Datos.m_Edad > m_Edad)
+	else if (_Datos.m_Edad != m_Edad)
 	{
 		return m_Edad > _Datos.m_Edad;
+	}
+}
+
+// Sobrecarga de operador <, el cual devolvera un booleano determinado por la comparacion entre los elementos.
+bool Persona::operator<(Persona & _Datos)
+{
+	if (_Datos.m_Apellido != m_Apellido)
+	{
+		return m_Apellido < _Datos.m_Apellido;
+	}
+	else if (_Datos.m_Nombre != m_Nombre)
+	{
+		return m_Nombre < _Datos.m_Nombre;
+	}
+	else if (_Datos.m_Edad != m_Edad)
+	{
+		return m_Edad < _Datos.m_Edad;
 	}
 }
 
@@ -48,7 +65,7 @@ bool Persona::operator==(Persona & _Datos)
 	}
 }
 
-std::ostream & operator>>(std::ostream & out, Persona & _Datos)
+std::ostream & operator <<(std::ostream & out, Persona & _Datos)
 {
 	out << "Apellido: " << _Datos.m_Apellido << "\nNombre: " << _Datos.m_Nombre << "\nEdad: " << _Datos.m_Edad << ".\n";
 	return out;
